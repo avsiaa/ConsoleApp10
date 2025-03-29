@@ -9,7 +9,7 @@ namespace ConsoleApp10
 {
     class Bondarenko_2
     {
-        static void Main(string[] args)
+        public static void Block_Lizas()
         {
             Console.OutputEncoding = Encoding.UTF8;
             int choice;
@@ -23,12 +23,12 @@ namespace ConsoleApp10
                 {
                     case 1:
                         Console.WriteLine();
-                        Console.WriteLine("Виконую блок 1");
+                        Console.WriteLine("Виконую блок з масивом");
                         Block_Masiv();
                         break;
                     case 2:
                         Console.WriteLine();
-                        Console.WriteLine("Виконую блок 2");
+                        Console.WriteLine("Виконую блок з List");
                         Block_List();
                         break;
                     case 0:
@@ -63,7 +63,7 @@ namespace ConsoleApp10
                 }
             }
         }
-        public static void Dodavana(ref int[][] masiv)
+        private static void Dodavana(ref int[][] masiv)
         {
             Console.WriteLine("Введiть число рядкiв, якi треба додати у початок масиву:");
             int K = int.Parse(Console.ReadLine());
@@ -90,7 +90,7 @@ namespace ConsoleApp10
         }
         public static void Print(int[][] masiv)
         {
-            Console.WriteLine("Кінцевий результат:");
+            Console.WriteLine("\nКінцевий результат:");
             for (int i = 0; i < masiv.Length; i++)
             {
                 Console.WriteLine(string.Join(" ", masiv[i]));
@@ -99,7 +99,6 @@ namespace ConsoleApp10
         static void Block_Masiv()
         {
             Input(out int[][] masiv);
-            Print(masiv);
             Dodavana(ref masiv);
             Print(masiv);
         }
@@ -121,7 +120,7 @@ namespace ConsoleApp10
                 int[] row = new int[l];
                 for (int j = 0; j < l; j++)
                 {
-                    MasivInList[i][j] = int.Parse(input[j]);
+                    row[j] = int.Parse(input[j]);
                 }
                 MasivInList.Add(row);
             }
@@ -140,20 +139,22 @@ namespace ConsoleApp10
 
                 Console.WriteLine($"Введiть {l} елементiв через пробiл:");
                 string[] input = Console.ReadLine().Split();
-                int[] MasivInList = new int[l];
+                int[] NewInList = new int[l];
                 for (int j = 0; j < l; j++)
                 {
-                    MasivInList[j] = int.Parse(input[j]);
+                    NewInList[j] = int.Parse(input[j]);
                 }
+            newMasivInList.Add(NewInList);
             }
-            newMasivInList.Add(MasivInList);
+            newMasivInList.AddRange(MasivInList);
+            MasivInList = newMasivInList;
         }
         public static void PrintList(List<int[]> MasivInList)
         {
-            Console.WriteLine("Кінцевий результат:");
-            for (int i = 0; i < MasivInList.Length; i++)
+            Console.WriteLine("\nКінцевий результат:");
+            foreach (var row in MasivInList)
             {
-                Console.WriteLine(string.Join(" ", MasivInList[i]));
+                Console.WriteLine(string.Join(" ", row));
             }
         }
         static void Block_List()
@@ -162,9 +163,5 @@ namespace ConsoleApp10
             DodavanaList(ref MasivInList);
             PrintList(MasivInList);
         }
-
-
-
     }
 }
-

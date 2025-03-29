@@ -23,7 +23,7 @@ namespace ConsoleApp10
                         Console.WriteLine("Блок 1");
                         Console.WriteLine("Завдання якого студента ви хочете побачити?: \n" +
                             "1. Вольвач Анастасія - варіант 7 \n" +
-                            "2. Mmmm Mmmm - варіант N \n" +
+                            "2. Бондаренко Єлизавета - варіант 6 \n" +
                             "3. Gggg Gggg - варіант N \n");
                         int choiceOfTask = int.Parse(Console.ReadLine());
 
@@ -44,7 +44,7 @@ namespace ConsoleApp10
                     Console.WriteLine("Блок 2");
                         Console.WriteLine("Завдання якого студента ви хочете побачити?: \n" +
                             "1. Вольвач Анастасія - варіант 10 \n" +
-                            "2. Mmmm Mmmm - варіант N \n" +
+                            "2. Бондаренко Єлизавета - варіант 2 \n" +
                             "3. Gggg Gggg - варіант N \n");
                         int choiceOfTask2 = int.Parse(Console.ReadLine());
                         switch (choiceOfTask2)
@@ -53,8 +53,12 @@ namespace ConsoleApp10
                                 Console.WriteLine("Виконую варіант 10: ");
                                 Methods.secondBlock();
                                 break;
-                                
-                               
+                            case 2:
+                                Console.WriteLine("Виконую варіант 2: ");
+                                Bondarenko_2.Block_Lizas();
+                                break;
+
+
                         }
                         break;
                     default: 
