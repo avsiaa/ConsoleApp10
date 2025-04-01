@@ -14,7 +14,7 @@ namespace ConsoleApp10
             Random rand = new Random();
             for (int i = 0; i < size; i++)
             {
-                arr[i] = rand.Next(-1000000, 1000000);
+                arr[i] = rand.Next(-1000000, 1000000);// додати тут
             }
             Console.WriteLine("Масив успішно збережений!");
             arrayRandom = arr;
