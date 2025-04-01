@@ -14,7 +14,7 @@ namespace ConsoleApp10
             Print(resultArray);
         }
         static void Print(int[] resultArray)
-        {
+        { 
             Console.WriteLine("Масив без елементів із парними індексами:");
             Console.WriteLine(string.Join(" ", resultArray));
         }
