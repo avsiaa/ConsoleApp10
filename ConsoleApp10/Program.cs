@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp10
 {
@@ -12,59 +8,79 @@ namespace ConsoleApp10
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             bool isTrue = true;
+            bool isRandom = false;
 
             while (isTrue)
             {
-                Console.WriteLine("Введіть число, який блок ви хочете побачити? (1,2): ");
+                Console.WriteLine("\nОберіть дію:");
+                Console.WriteLine("1. Заповнення масиву самостійно");
+                Console.WriteLine("2. Заповнення масиву рандомно");
+                Console.WriteLine("3. Видалити записані дані масиву");
+                Console.WriteLine("4. Завдання студентів");
+                Console.WriteLine("0. Вихід");
+
                 int choice = int.Parse(Console.ReadLine());
+
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("Блок 1");
-                        Console.WriteLine("Завдання якого студента ви хочете побачити?: \n" +
-                            "1. Вольвач Анастасія - варіант 7 \n" +
-                            "2. Mmmm Mmmm - варіант N \n" +
-                            "3. Gggg Gggg - варіант N \n");
-                        int choiceOfTask = int.Parse(Console.ReadLine());
-
-                        switch (choiceOfTask)
-                        {
-                            case 1:
-                                Console.WriteLine("Виконую завдання під варіантом 7: ");
-                                Methods.firstBlock();
-                                break;
-
-                            default: return;
-                                
-                        }
-                        
-                    break;
+                        Console.WriteLine("Заповнення масиву самостійно");
+                        ArrayHelper.InputArray();
+                        isRandom = false;
+                        break;
 
                     case 2:
-                    Console.WriteLine("Блок 2");
-                        Console.WriteLine("Завдання якого студента ви хочете побачити?: \n" +
-                            "1. Вольвач Анастасія - варіант 10 \n" +
-                            "2. Mmmm Mmmm - варіант N \n" +
-                            "3. Gggg Gggg - варіант N \n");
-                        int choiceOfTask2 = int.Parse(Console.ReadLine());
-                        switch (choiceOfTask2)
+                        Console.WriteLine("Заповнення масиву рандомно");
+                        ArrayRandom.InputArrayRandom();
+                        isRandom = true;
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Видалення записаних даних масиву");
+                        ArrayClear.ClearAll();
+                        break;
+
+                    case 4:
+                        Console.WriteLine("\nОберіть завдання студента:");
+                        Console.WriteLine("1. Вольвач Анастасія - варіант 7");
+                        Console.WriteLine("2. Риженкова Ольга - варіант X");
+                        Console.WriteLine("3. Бондаренко Єлизавета - варіант Y");
+
+                        int studentChoice = int.Parse(Console.ReadLine());
+
+                        switch (studentChoice)
                         {
                             case 1:
-                                Console.WriteLine("Виконую варіант 10: ");
-                                Methods.secondBlock();
+                                Console.WriteLine("Виконую завдання Вольвач Анастасії");
+                                Methods.firstBlockAV(isRandom);
                                 break;
-                                
-                               
+
+                            case 2:
+                                Console.WriteLine("Виконую завдання Риженкової Ольги");
+                                Methods.Olga1(isRandom);
+                                break;
+
+                            case 3:
+                                Console.WriteLine("Виконую завдання Бондаренко Єлизавети");
+                                Methods.firstBlockBond(isRandom);
+                                break;
+
+                            default:
+                                Console.WriteLine("Некоректний вибір студента!");
+                                break;
                         }
                         break;
-                    default: 
+
+                    case 0:
+                        Console.WriteLine("Вихід із програми...");
                         isTrue = false;
                         break;
 
+                    default:
+                        Console.WriteLine("Некоректний вибір! Спробуйте ще раз.");
+                        break;
                 }
             }
-
-
         }
     }
 }
