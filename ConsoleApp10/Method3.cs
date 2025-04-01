@@ -1,28 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp10
 {
     partial class Methods
     {
-        public static void firstBlockBond()
+        public static void firstBlockBond(bool isRandom)
         {
-            int[] array = GetUserInputForSixthBlock1();
-
+            int[] array = isRandom ? ArrayRandom.GetArrayRandom() : ArrayHelper.GetArray();
             if (array.Length == 0)
             {
-                Console.WriteLine("Масив порожній!");
+                Console.WriteLine("Масив порожній! Введіть дані спочатку.");
                 return;
             }
-            int newSize = array.Length / 2;
-            if (array.Length % 2 != 0)
-            {
-                newSize++;
-            }
 
+            int newSize = array.Length / 2 + (array.Length % 2);
             int[] resultArray = new int[newSize];
             int index = 0;
 
@@ -34,18 +25,4 @@ namespace ConsoleApp10
             Console.WriteLine("Масив без елементів із парними індексами:");
             Console.WriteLine(string.Join(" ", resultArray));
         }
-        private static int[] GetUserInputForSixthBlock1()
-        {
-            Console.WriteLine("Введіть елементи масиву через пробіл:");
-            string input = Console.ReadLine();
-            string[] parts = input.Split(' ');
-            int[] array = new int[parts.Length];
-
-            for (int i = 0; i < parts.Length; i++)
-            {
-                array[i] = int.Parse(parts[i]);
-            }
-            return array;
-        }
     }
-}

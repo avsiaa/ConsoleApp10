@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Random.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="Method3.cs" />
     <Compile Include="Method1.cs" />
     <Compile Include="Method2.cs" />
