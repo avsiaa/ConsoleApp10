@@ -11,11 +11,6 @@ namespace ConsoleApp10
         public static void Olga1(bool isRandom)
         {
             int[] array = isRandom ? ArrayRandom.GetArrayRandom() : ArrayHelper.GetArray();
-            if(array.Length ==0) //зміни тут
-            {
-                Console.WriteLine("Масив порожній! Введіть дані спочатку.");
-                return;
-            }
             (int min, int max) = MinMax(array);
             int[] newArr = NewArray(array, min, max);
             PrintArray(newArr);
@@ -36,7 +31,10 @@ namespace ConsoleApp10
         {
             int[] newArr = new int[arr.Length + 2];
             newArr[0] = min;
-            Array.Copy(arr, 0, newArr, 1, arr.Length);
+            for(int i = 0; i < arr.Length; i++)
+            {
+                newArr[i + 1] = arr[i];
+            }
             newArr[newArr.Length - 1] = max;
             return newArr;
         }
