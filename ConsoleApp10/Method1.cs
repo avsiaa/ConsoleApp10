@@ -8,7 +8,7 @@ namespace ConsoleApp10
         {
             int[] array = isRandom ? ArrayRandom.GetArrayRandom() : ArrayHelper.GetArray();
 
-            if (array.Length == 0)
+            if (array.Length == 0) //Змінити тут
             {
                 Console.WriteLine("Масив порожній! Введіть дані спочатку.");
                 return;
