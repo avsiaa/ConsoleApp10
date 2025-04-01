@@ -26,3 +26,4 @@ namespace ConsoleApp10
             Console.WriteLine(string.Join(" ", resultArray));
         }
     }
+}
