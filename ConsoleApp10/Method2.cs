@@ -27,7 +27,7 @@ namespace ConsoleApp10
             return (min, max);
         }
 
-        static int[] NewArray(int[] arr, int min, int max)//зміни тут
+        static int[] NewArray(int[] arr, int min, int max)
         {
             int[] newArr = new int[arr.Length + 2];
             newArr[0] = min;
