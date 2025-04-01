@@ -11,7 +11,7 @@ namespace ConsoleApp10
         public static void Olga1(bool isRandom)
         {
             int[] array = isRandom ? ArrayRandom.GetArrayRandom() : ArrayHelper.GetArray();
-            if(array.Length ==0)
+            if(array.Length ==0) //зміни тут
             {
                 Console.WriteLine("Масив порожній! Введіть дані спочатку.");
                 return;
