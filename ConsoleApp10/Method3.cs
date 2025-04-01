@@ -6,7 +6,7 @@ namespace ConsoleApp10
     {
         public static void firstBlockBond(bool isRandom)
         {
-            int[] array = isRandom ? ArrayRandom.GetArrayRandom() : ArrayHelper.GetArray();
+            int[] array = isRandom ? ArrayRandom.GetArrayRandom() : ArrayHelper.GetArray();// тут
             if (array.Length == 0)
             {
                 Console.WriteLine("Масив порожній! Введіть дані спочатку.");
@@ -22,7 +22,7 @@ namespace ConsoleApp10
                 resultArray[index++] = array[i];
             }
 
-            Console.WriteLine("Масив без елементів із парними індексами:");
+            Console.WriteLine("Масив без елементів із парними індексами:");// і тут
             Console.WriteLine(string.Join(" ", resultArray));
         }
     }
