@@ -37,14 +37,15 @@ namespace ConsoleApp10
 
                     case 3:
                         Console.WriteLine("Видалення записаних даних масиву");
-                        ArrayClear.ClearAll();
+                        ArrayHelper.ClearArrayRandom();
+                        ArrayRandom.ClearArray();
                         break;
 
                     case 4:
                         Console.WriteLine("\nОберіть завдання студента:");
                         Console.WriteLine("1. Вольвач Анастасія - варіант 7");
-                        Console.WriteLine("2. Риженкова Ольга - варіант X");
-                        Console.WriteLine("3. Бондаренко Єлизавета - варіант Y");
+                        Console.WriteLine("2. Риженкова Ольга - варіант 11");
+                        Console.WriteLine("3. Бондаренко Єлизавета - варіант 6");
 
                         int studentChoice = int.Parse(Console.ReadLine());
 
