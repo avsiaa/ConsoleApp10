@@ -1,18 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ConsoleApp10
 {
     partial class Methods
     {
-        public static void Olga1(bool isRandom)
+        public static void Olga1()
         {
-            int[] array = isRandom ? ArrayRandom.GetArrayRandom() : ArrayHelper.GetArray();
+            int[] array = ArrayHelper.GetArray();
             (int min, int max) = MinMax(array);
             int[] newArr = NewArray(array, min, max);
             PrintArray(newArr);
+            ArrayHelper.reserveArray = ArrayHelper.array;
+            ArrayHelper.array = newArr;
         }
-        
+
         static (int min, int max) MinMax(int[] arr)
         {
             int min = arr[0], max = arr[0];
@@ -28,7 +33,7 @@ namespace ConsoleApp10
         {
             int[] newArr = new int[arr.Length + 2];
             newArr[0] = min;
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 newArr[i + 1] = arr[i];
             }
@@ -44,4 +49,3 @@ namespace ConsoleApp10
     }
 
 }
-

@@ -4,9 +4,15 @@ namespace ConsoleApp10
 {
     partial class Methods
     {
-        public static void firstBlockAV(bool isRandom)
+        public static void firstBlockAV()
         {
-            int[] array = isRandom ? ArrayRandom.GetArrayRandom() : ArrayHelper.GetArray();
+            int[] array = ArrayHelper.GetArray();
+
+            if (array.Length == 0) //Змінити тут
+            {
+                Console.WriteLine("Масив порожній! Введіть дані спочатку.");
+                return;
+            }
 
             (int firstMinIndex, int lastMaxIndex) = FindMinMaxIndices(array);
 
@@ -20,6 +26,8 @@ namespace ConsoleApp10
 
             Console.WriteLine("Масив після видалення елементів між першим мінімальним і останнім максимальним:");
             Console.WriteLine(string.Join(" ", resultArray));
+            ArrayHelper.reserveArray = ArrayHelper.array;
+            ArrayHelper.array = resultArray;
         }
 
         private static (int, int) FindMinMaxIndices(int[] array)
@@ -60,6 +68,7 @@ namespace ConsoleApp10
 
             for (int i = lastMaxIndex; i < array.Length; i++)
                 resultArray[index++] = array[i];
+
 
             return resultArray;
         }
