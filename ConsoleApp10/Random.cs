@@ -7,7 +7,7 @@ namespace ConsoleApp10
         private static int[] arrayRandom;
         public static void InputArrayRandom()
         {
-            Console.Write("Введіть, скільки елементів згенерувати випадково: ");//Допрацювала метод для випадкового заповнювання масиву (додала можливість вказувати мінімальне та максимальне значення при заповненні)
+            Console.Write("Введіть, скільки елементів згенерувати випадково: ");
             int size = int.Parse(Console.ReadLine());
 
             Console.Write("Введіть мінімальне значення: ");
