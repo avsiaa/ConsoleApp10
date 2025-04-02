@@ -42,34 +42,7 @@ namespace ConsoleApp10
                         break;
 
                     case 4:
-                        Console.WriteLine("\nОберіть завдання студента:");
-                        Console.WriteLine("1. Вольвач Анастасія - варіант 7");
-                        Console.WriteLine("2. Риженкова Ольга - варіант 11");
-                        Console.WriteLine("3. Бондаренко Єлизавета - варіант 6");
-
-                        int studentChoice = int.Parse(Console.ReadLine());
-
-                        switch (studentChoice)
-                        {
-                            case 1:
-                                Console.WriteLine("Виконую завдання Вольвач Анастасії");
-                                Methods.firstBlockAV(isRandom);
-                                break;
-
-                            case 2:
-                                Console.WriteLine("Виконую завдання Риженкової Ольги");
-                                Methods.Olga1(isRandom);
-                                break;
-
-                            case 3:
-                                Console.WriteLine("Виконую завдання Бондаренко Єлизавети");
-                                Methods.firstBlockBond(isRandom);
-                                break;
-
-                            default:
-                                Console.WriteLine("Некоректний вибір студента!");
-                                break;
-                        }
+                        HandleStudentTasks(isRandom);
                         break;
 
                     case 0:
@@ -79,6 +52,73 @@ namespace ConsoleApp10
 
                     default:
                         Console.WriteLine("Некоректний вибір! Спробуйте ще раз.");
+                        break;
+                }
+            }
+        }
+
+        static void HandleStudentTasks(bool isRandom)
+        {
+            bool continueTasks = true;
+            bool usePreviousArray = false;
+
+            while (continueTasks)
+            {
+                Console.WriteLine("\nОберіть завдання студента:");
+                Console.WriteLine("1. Вольвач Анастасія - варіант 7");
+                Console.WriteLine("2. Риженкова Ольга - варіант 11");
+                Console.WriteLine("3. Бондаренко Єлизавета - варіант 6");
+                Console.WriteLine("0. Повернутися до головного меню");
+
+                int studentChoice = int.Parse(Console.ReadLine());
+
+                switch (studentChoice)
+                {
+                    case 1:
+                        Console.WriteLine("Виконую завдання Вольвач Анастасії");
+                        Methods.firstBlockAV(isRandom);
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Виконую завдання Риженкової Ольги");
+                        Methods.Olga1(isRandom);
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Виконую завдання Бондаренко Єлизавети");
+                        Methods.firstBlockBond(isRandom);
+                        break;
+
+                    case 0:
+                        continueTasks = false;
+                        return;
+
+                    default:
+                        Console.WriteLine("Некоректний вибір студента!");
+                        continue;
+                }
+
+                Console.WriteLine("\nОберіть наступну дію:");
+                Console.WriteLine("1. Виконати наступний варіант із початковим масивом");
+                Console.WriteLine("2. Виконати наступний варіант із масивом після змін");
+                Console.WriteLine("0. Вийти до головного меню");
+
+                int nextChoice = int.Parse(Console.ReadLine());
+
+                switch (nextChoice)
+                {
+                    case 1:
+                        usePreviousArray = false;
+                        break;
+                    case 2:
+                        usePreviousArray = true;
+                        break;
+                    case 0:
+                        continueTasks = false;
+                        break;
+                    default:
+                        Console.WriteLine("Некоректний вибір! Повернення до головного меню.");
+                        continueTasks = false;
                         break;
                 }
             }
